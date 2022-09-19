@@ -10,4 +10,13 @@ Cơ chế hoạt động của ELK Stack có thể mô tả qua hình dưới:
 ![Cơ chế hoạt động ELK Stack](https://user-images.githubusercontent.com/112193377/191057122-3722be59-152a-47bf-bea6-c89e09da9a0e.png)
 # Cài đặt ELK Stack
 Phần này sẽ hướng dẫn cài ELK Stack phiên bản 7.
-## Bước 1: 
+## Trước khi cài đặt: 
+- Update hệ thống:
+>sudo yum update -y
+- Cài đặt Java 1.8.0 (Lưu ý rằng phiên bản ELK khác có thể sẽ tương thích với phiên bản Java khác):
+>sudo yum install  java-1.8.0-openjdk-devel –y
+- Tạo repo:
+>echo '[elasticsearch-7.x] name=Elasticsearch repository for 7.x packages baseurl=https://artifacts.elastic.co/packages/7.x/yum gpgcheck=1 gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch enabled=1 autorefresh=1 type=rpm-md ' > /etc/yum.repos.d/elasticsearch.repo
+- Sau khi hoàn thành các bước trên sử dụng lệnh
+>yum install (component) -y
+với (component) thay bằng tên thành phần cần cài đặt. Ở đây ta sẽ cài filebeat, metricbeat, packetbeat, logstash, elasticsearch, kibana.
